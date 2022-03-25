@@ -61,3 +61,27 @@ DELETE http://localhost:8080/api/category/5
 ### Product CRUD #######################################################################################################
 
 ### Get All
+GET http://localhost:8080/api/product
+
+### Get One
+GET http://localhost:8080/api/product/5
+
+### Add
+POST  http://localhost:8080/api/product
+Content-Type: application/json
+
+{
+  "name" : "Tadbirkorlik"
+}
+
+### Edit
+PUT http://localhost:8080/api/product/5
+Content-Type: application/json
+
+{
+  "name" : "Xususiy tadbirkorlik"
+}
+
+### Delete
+DELETE http://localhost:8080/api/product/5
+

@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.pdp.apelsin.dto.ApiResponse;
+import uz.pdp.apelsin.dto.ProductDTO;
 import uz.pdp.apelsin.entity.Product;
 import uz.pdp.apelsin.repository.ProductRepository;
 import uz.pdp.apelsin.service.ProductService;
@@ -35,14 +36,14 @@ public class ProductController {
     }
 
     @PostMapping
-    public HttpEntity<?> add(@RequestBody Product product) {
-        ApiResponse response = productService.add(product);
+    public HttpEntity<?> add(@RequestBody ProductDTO productDTO) {
+        ApiResponse response = productService.add(productDTO);
         return ResponseEntity.status(response.isSuccess() ? 201 : 409).body(response);
     }
 
     @PutMapping("/{id}")
-    public HttpEntity<?> edit(@PathVariable Integer id, @RequestBody Product product) {
-        ApiResponse response = productService.edit(id, product);
+    public HttpEntity<?> edit(@PathVariable Integer id, @RequestBody ProductDTO productDTO) {
+        ApiResponse response = productService.edit(id, productDTO);
         return ResponseEntity.status(response.isSuccess() ? 200 : 409).body(response);
     }
 
